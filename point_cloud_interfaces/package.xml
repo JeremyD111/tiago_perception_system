@@ -1,0 +1,33 @@
+<package format="3">
+  <name>point_cloud_interfaces</name>
+  <version>6.0.1</version>
+  <description>
+    msg definitions for use with point_cloud_transport plugins.
+  </description>
+  <author>Jakub Paplham</author>
+  <maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+  <license>BSD</license>
+
+  <url type="repository">https://github.com/ctu-vras/draco_point_cloud_transport</url>
+  <url type="website">https://wiki.ros.org/draco_point_cloud_transport</url>
+  <url type="bugtracker">https://github.com/ctu-vras/draco_point_cloud_transport/issues</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>builtin_interfaces</build_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
