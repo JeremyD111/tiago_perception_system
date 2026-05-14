@@ -13,6 +13,26 @@ El repositorio  incluye:
 
 - *`point_cloud_interfaces`* : Definición de mensajes personalizados (`CompressedPointCloud2`) requeridos por Cloudini. 
 
+## Análisis de Rendimiento: Orden del Pipeline de Procesamiento
+
+### 1. Arquitectura del sistema
+
+Esta imagen muestra la estructura del sistema y como fluye la informacion/datos de entrada o salida 
+![Diagrama de Arquitectura del sistema](images/arquitectura_sistema.png)
+
+### 2. Filtrar primero y luego concatenar
+Los resultados experimentales determinaron que el orden óptimo es **Filtrar primero las nubes de puntos a usar (Orbbec y TIAGo) y luego realizar la concatenación**  basándose en las siguientes métricas:
+
+1. **Reducción de carga computacional (CPU):** Al aplicar el filtro espacial (VAMP) sobre la nube en bruto, se descartan miles de puntos innecesarios (ruido, fuera del radio de interés o colisiones con el propio entorno). Al comprimir (Cloudini) *después* del filtrado, el algoritmo procesa un volumen de datos drásticamente menor, ahorrando ciclos de CPU.
+
+2. **Optimización del ancho de banda:** Comprimir una nube previamente filtrada genera un *payload* (carga útil de red) mucho más ligero que comprimir la nube completa. Esto reduce la latencia de transmisión a través de la red local entre Sputnik y el TIAGo.
+
+A continuacion se muestra un resumen de los resultados de las pruebas donde se puede observar los tiempos de ejecucion de cada proceso (Filtra - Concatenar vs Concatenar -Filtrar):
+
+![Diagrama de Arquitectura del sistema](images/Concatenation_filter.png)
+
+
+![Diagrama de Arquitectura del sistema](images/Filter_concatenation.png)
 
 
 ## Lanzamiento del nodo de la camara Orbbec Astra 2
