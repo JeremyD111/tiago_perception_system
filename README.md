@@ -32,7 +32,7 @@ A continuacion se muestra un resumen de los resultados de las pruebas donde se p
 ![Diagrama de Arquitectura del sistema](images/Concatenation_filter.png)
 
 
-![Diagrama de Arquitectura del sistema](images/Filter_concatenation.png)
+![Diagrama de Arquitectura del sistema](images/Filtrado_concatenacion.png)
 
 
 ## Lanzamiento del nodo de la camara Orbbec Astra 2
